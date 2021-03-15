@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Visualization with R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Florencia D’Andrea" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/js-cookie/js.cookie.js"></script>
+    <script src="libs/peerjs/peerjs.min.js"></script>
+    <script src="libs/tiny.toast/toast.min.js"></script>
+    <link href="libs/xaringanExtra-broadcast/broadcast.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-broadcast/broadcast.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <meta name="github-repo" content="flor14/rladies-jujuy"/>
+    <meta name="twitter:title" content="Data Visualization I"/>
+    <meta name="twitter:description" content="an introduction to ggplot2 and other visualizacion packages"/>
+    <meta name="twitter:url" content="https://https://flor14.github.io/toronto_data_workshop/what_i_learned_from_reprohack.html#1"/>
+    <meta name="twitter:image:src" content="https://res.cloudinary.com/flor/image/upload/v1614305498/75581_l4kohr.jpg"/>
+    <meta name="twitter:image:alt" content="Florencia D&#39;Andrea March 2021"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@cantoflor_87"/>
+    <meta name="twitter:site" content="@cantoflor_87"/>
+    <meta property="og:title" content="Data Visualization I"/>
+    <meta property="og:description" content="an introduction to ggplot2 and other visualizacion packages"/>
+    <meta property="og:url" content="https://https://flor14.github.io/toronto_data_workshop/what_i_learned_from_reprohack.html#1"/>
+    <meta property="og:image" content="https://res.cloudinary.com/flor/image/upload/v1614305498/75581_l4kohr.jpg"/>
+    <meta property="og:image:alt" content="Florencia D&#39;Andrea March 2021"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="Florencia D&#39;Andrea"/>
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/dagre/dagre.min.js"></script>
+    <script src="libs/lodash/lodash.js"></script>
+    <script src="libs/nomnoml/nomnoml.js"></script>
+    <script src="libs/nomnoml-binding/nomnoml.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+
+### Objectives of this 15' class
+
+* Recognize that `ggplot()` is one of the possible functions to plot in R
+* Understand that `ggplot2` is a tidyverse package and presents a particular syntax
+
+--
+
+### The students are familiar with...
+
+* Basics of R programming
+* RStudio IDE
+* RMarkdown
+* The use of R packages
+
+---
+
+background-image: url(images/cuadrados.png)
+background-size: cover
+class: bottom
+
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+## Data Visualization 
+#### Class 1: Introduction the `ggplot2` package 
+
+]
+
+---
+
+## Data Science
+
+
+&lt;img src="images/data.png" width="550" /&gt;
+
+.footnote[[R for Data Science](https://r4ds.had.co.nz/explore-intro.html)]
+---
+
+class: center, middle
+
+
+.pull-left[
+
+![](slides_files/figure-html/plot-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right[
+
+![](slides_files/figure-html/ggplot-1.png)&lt;!-- --&gt;
+
+]
+---
+
+.pull-left[
+
+![](slides_files/figure-html/plot2-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right[
+
+![](slides_files/figure-html/ggplot2-1.png)&lt;!-- --&gt;
+]
+
+
+
+#### Which one of these statements is true?
+
+--
+
+**A.** These plots were made with different programming languages.
+
+--
+
+**B.** Both are made with R.
+
+--
+
+**C.** Only the graph on the right was made with R.
+
+--
+
+**D.** None of the above.
+
+---
+
+.pull-left[
+
+![](slides_files/figure-html/plot5-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right[
+
+![](slides_files/figure-html/ggplot5-1.png)&lt;!-- --&gt;
+
+]
+
+#### Which one of these statements is true?
+
+**A.** These plots were made with different programming languages.
+
+
+
+&lt;span style="background-color: lightblue"&gt;**B.** Both plots were made with R.&lt;/mark&gt;
+
+
+
+**C.** Only the graph on the right was made with R.
+
+
+
+**D.** None of the above.
+
+---
+
+.pull-left[
+
+![](slides_files/figure-html/plot4-1.png)&lt;!-- --&gt;
+
+####`plot()`
+
+]
+
+.pull-right[
+
+![](slides_files/figure-html/ggplot4-1.png)&lt;!-- --&gt;
+
+####`ggplot2::ggplot()`
+
+
+]
+
+    📈     
+#### &lt;pre class="tab"&gt;base R      tidyverse&lt;/pre&gt;
+
+&lt;span style="background-color: lightblue"&gt;**B.** Both are made with R.&lt;/mark&gt;
+
+.footnote[Other examples  [here](https://flowingdata.com/2016/03/22/comparing-ggplot2-and-r-base-graphics/)]
+
+---
+
+## Tidyverse packages
+
+* Opinionated collection of **R packages** designed for data science
+
+
+&lt;img src="images/tidytools.png" width="1632" style="display: block; margin: auto;" /&gt;
+
+
+.footnote[[Tidyverse webpage](https://www.tidyverse.org/)]
+
+---
+
+
+&lt;img src="images/hex.png" width="250" style="display: block; margin: auto;" /&gt;
+
+#### `ggplot2` is the plotting package of the `tidyverse`
+---
+
+class: middle, center
+
+.pull-left[
+
+![](slides_files/figure-html/plot6-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right[
+
+![](slides_files/figure-html/ggplot6-1.png)&lt;!-- --&gt;
+
+]
+
+### Let's have a look at the code
+
+---
+
+class: inverse, middle, center
+
+
+## Live coding #1
+
+
+---
+
+## Cheat sheet
+
+&lt;img src="images/syntax.png" width="1389" style="display: block; margin: auto;" /&gt;
+
+.footnote[[R Syntax Comparison - Amalia McNamara](https://www.amelia.mn/Syntax-cheatsheet.pdf)
+
+---
+
+.pull-left[
+
+**dollar sign / base R syntax**
+base R functions
+
+
+* dataset$variablename
+
+* square bracket subsetting
+dataset[1,2].
+
+]
+
+.pull-right[
+
+**tidyverse syntax** 
+`dplyr`, `tidyr`, and more. 
+
+These functions expect data to be the first argument,
+which allows them to work with the “pipe” (**%&gt;%**) from the
+`magrittr` package. 
+
+`ggplot2` has a 
+]
+
+---
+
+
+```r
+library(dplyr)
+library(ggplot2)
+
+diamonds %&gt;% 
+  mutate(price = price*1000) %&gt;% 
+  filter(cut == "Premium") %&gt;% 
+  ggplot(aes(x = carat, y = price, color = clarity))+
+  scale_color_viridis_d()+
+  geom_point()+
+  theme_bw()
+```
+
+![](slides_files/figure-html/ggplot9-1.png)&lt;!-- --&gt;
+
+---
+
+## Tidyverse syntax
+#### `ggplot2` uses plus signs (**+**) to string pieces together
+
+
+```r
+library(dplyr)
+library(ggplot2)
+
+diamonds %&gt;% 
+  mutate(price = price*1000) %&gt;% 
+  filter(cut == "Premium") %&gt;% 
+  ggplot(aes(x = carat, y = price, color = clarity))+
+  scale_color_viridis_d()+
+  geom_point()+
+  theme_bw()
+```
+
+![](slides_files/figure-html/ggplot10-1.png)&lt;!-- --&gt;
+
+
+---
+
+class: middle, inverse
+
+### Why it is important to be aware of syntax differences?
+
+
+---
+
+
+
+&lt;img src="images/stack1.png" width="968" style="display: block; margin: auto;" /&gt;
+
+
+.footnote[[Any way to make plot points in scatterplot more transparent in R?](https://stackoverflow.com/questions/12995683/any-way-to-make-plot-points-in-scatterplot-more-transparent-in-r)]
+---
+
+&lt;img src="images/stack2.png" width="963" style="display: block; margin: auto;" /&gt;
+
+
+.footnote[[Any way to make plot points in scatterplot more transparent in R?](https://stackoverflow.com/questions/12995683/any-way-to-make-plot-points-in-scatterplot-more-transparent-in-r)]
+---
+
+.pull-left[
+
+
+
+]
+
+
+---
+
+
+
+
+
+
+---
+
+## Take home messages
+
+* There are different R syntaxes. 
+
+
+
+
+---
+
+background-image: url(images/cuadrados.png)
+background-size: cover
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+
+### Books
+
+* Wickham, H., &amp; Grolemund, G. (2016). [R for data science: import, tidy, transform, visualize, and model data.](https://r4ds.had.co.nz/) O'Reilly Media, Inc.
+
+* Wickham, H. (2016). [Ggplot2: Elegant graphics for data analysis.](https://ggplot2-book.org/) Springer, 2016.
+
+*  https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html
+]
+
+
+
+---
+
+background-image: url(images/cuadrados.png)
+background-size: cover
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+
+### Blogposts
+
+* [Why I don't use ggplot2](https://simplystatistics.org/2016/02/11/why-i-dont-use-ggplot2/) - Jeff Leek
+
+* [Why I use ggplot2](http://varianceexplained.org/r/why-I-use-ggplot2/) - David Robinson
+
+* [Comparing ggplot2 and R Base Graphics](https://flowingdata.com/2016/03/22/comparing-ggplot2-and-r-base-graphics/) - Nathan Yau
+]
+
+---
+
+#### Could you say which of these statements do you think is more appropriate?
+
+--
+**A.** These graphics were made with different softwares.
+
+--
+**B.** Both are made with R, only the graph on the right has more details.
+
+--
+**C.** Only the graph on the right was made with R.
+
+--
+**D.** None of the above.
+
+
+---
+
+#### Could you say which of these statements do you think is more appropriate?
+
+
+**A.** These graphics were made with different softwares.
+
+This is the *common sense* answer
+
+**Epistemological obstacle**
+&gt; There is only one way to plot with R
+
+**Potential problem**
+* It is likely that student doesn't know about the Tidyverse
+
+**Concept to work**
+* There may be several different ways to produce equivalent results using the same programming language.
+* This preconception can cause problems when you want to find information about graphics with R on the web.
+
+
+
+Other option could be:
+One of this graphics is python and the other is R
+
+---
+
+#### Could you say which of these statements do you think is more appropriate?
+
+
+**B.** Both are made with R.
+
+This is the correct answer
+
+The students...
+* ...are aware that you can make different plots using R
+* ...not necessarily know about the Tidyverse.
+
+**Concept to work**
+Let's make explicit that ggplot is one of the Tidyverse packages.
+
+
+```nomnoml
+# stroke: orange
+#.box: fill=#8f8 visual=ellipse
+
+[ggplot2 package]-[tidyverse]
+[base r]-[&lt;box&gt;R]
+[tidyverse]-[&lt;box&gt;R]
+[`plot()`]-[base r]
+[`ggplot()`]-[ggplot2 package]
+```
+
+```{=html}
+&lt;div id="htmlwidget-ecbe08dd9a5ff09211aa" style="width:504px;height:504px;" class="nomnoml html-widget"&gt;&lt;/div&gt;
+&lt;script type="application/json" data-for="htmlwidget-ecbe08dd9a5ff09211aa"&gt;{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n# stroke: orange\n#.box: fill=#8f8 visual=ellipse\n\n[ggplot2 package]-[tidyverse]\n[base r]-[&lt;box&gt;R]\n[tidyverse]-[&lt;box&gt;R]\n[`plot()`]-[base r]\n[`ggplot()`]-[ggplot2 package]\n","svg":false},"evals":[],"jsHooks":[]}&lt;/script&gt;
+```
+
+
+
+
+---
+
+#### Could you say which of these statements do you think is more appropriate?
+
+
+
+**C.** Only the graph on the right was made with R.
+
+
+Students only recognize ggplot as the R plots.
+
+Probably students answering this are familiarized with the Tidyverse, but they do not know that basically ggplot is build from R base code and that there are other ways to 
+
+---
+
+#### Could you say which of these statements do you think is more appropriate?
+
+
+**D.** Other:
+
+ Are there any options that I am not considering? Let's listen to the students
+
+
+
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
