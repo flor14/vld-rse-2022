@@ -21,10 +21,10 @@
     <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
-    <meta name="github-repo" content="flor14/rladies-jujuy"/>
+    <meta name="github-repo" content="flor14/short_class.git"/>
     <meta name="twitter:title" content="Data Visualization I"/>
     <meta name="twitter:description" content="an introduction to ggplot2 and other visualizacion packages"/>
-    <meta name="twitter:url" content="https://https://flor14.github.io/toronto_data_workshop/what_i_learned_from_reprohack.html#1"/>
+    <meta name="twitter:url" content="https://flor14.github.io/short_class/slides.html#1"/>
     <meta name="twitter:image:src" content="https://res.cloudinary.com/flor/image/upload/v1614305498/75581_l4kohr.jpg"/>
     <meta name="twitter:image:alt" content="Florencia D&#39;Andrea March 2021"/>
     <meta name="twitter:card" content="summary_large_image"/>
@@ -32,7 +32,7 @@
     <meta name="twitter:site" content="@cantoflor_87"/>
     <meta property="og:title" content="Data Visualization I"/>
     <meta property="og:description" content="an introduction to ggplot2 and other visualizacion packages"/>
-    <meta property="og:url" content="https://https://flor14.github.io/toronto_data_workshop/what_i_learned_from_reprohack.html#1"/>
+    <meta property="og:url" content="https://flor14.github.io/short_class/slides.html#1"/>
     <meta property="og:image" content="https://res.cloudinary.com/flor/image/upload/v1614305498/75581_l4kohr.jpg"/>
     <meta property="og:image:alt" content="Florencia D&#39;Andrea March 2021"/>
     <meta property="og:type" content="website"/>
@@ -55,7 +55,7 @@
 
 The students should...
 
-* ...understand that `ggplot2::ggplot()` and `plot()` are two of the possible functions to plot in R, and that in this course we will focus on the first one.
+* ...understand that `ggplot2::ggplot()` and `plot()` are two functions that we can use to make graphics in R.
 
 * ...recognize that Tidyverse and base R have different R syntax 
 
@@ -68,6 +68,7 @@ The students should...
 * RMarkdown
 * The use of R packages
 * Tidyverse
+
 
 ---
 
@@ -88,7 +89,17 @@ class: bottom
 ## Data Science
 
 
-&lt;img src="images/data.png" width="650" style="display: block; margin: auto;" /&gt;
+&lt;img src="images/data.png" width="550" style="display: block; margin: auto;" /&gt;
+
+.footnote[[R for Data Science](https://r4ds.had.co.nz/explore-intro.html)]
+
+---
+
+
+## Data Science
+
+
+&lt;img src="images/data2.png" width="550" style="display: block; margin: auto;" /&gt;
 
 .footnote[[R for Data Science](https://r4ds.had.co.nz/explore-intro.html)]
 ---
@@ -126,11 +137,11 @@ class: center, middle
 
 --
 
-**A.** These plots were made with different programming languages.
+**A.** These plots were made using different programming languages.
 
 --
 
-**B.** Both are made with R.
+**B.** Both plots were made using R.
 
 --
 
@@ -152,11 +163,10 @@ class: center, middle
 
 #### Which one of these statements is true?
 
-**A.** These plots were made with different programming languages.
+**A.** These plots were made using different programming languages.
 
 
-
-&lt;span style="background-color: lightblue"&gt;**B.** Both plots were made with R.&lt;/mark&gt;
+&lt;span style="background-color: lightblue"&gt;**B.** Both plots plots were made using R.&lt;/mark&gt;
 
 
 **C.** None of the above.
@@ -180,9 +190,8 @@ class: center, middle
 
 ]
   
-#### &lt;pre class="tab"&gt;base R                         tidyverse&lt;/pre&gt;
+#### &lt;pre class="tab"&gt;base R                 tidyverse&lt;/pre&gt;
 
-&lt;span style="background-color: lightblue"&gt;**B.** Both are made with R.&lt;/mark&gt;
 
 ---
 
@@ -224,6 +233,8 @@ class: inverse, middle, center
 
 #### `plot()` and `ggplot()`
 
+📝 DSCI531_lesson1_livecoding1.Rmd
+
 ---
 
 .pull-left[
@@ -255,28 +266,33 @@ ggplot(diamonds,
 ![](slides_files/figure-html/ggplot14-1.png)&lt;!-- --&gt;
 ]
 
+---
 
+class: middle, inverse
+
+
+### The variety of R syntaxes give you **many ways to “say” the same thing**
+
+.footnote[R Syntax Comparison Cheat Sheet by Amelia McNamara]
 ---
 
 class: middle, center, inverse
 
 
-### In this course we are going to use `ggplot2` 
+### In this course we are going to learn `ggplot2` 
 
 ---
-
-&lt;img src="hex.png" width="10%" align="right" /&gt;
 
 ### Why to use `ggplot2`?
 
 
 .pull-left[
 
-* once fluent, can make most plots up to **publication quality standard** very quickly.
+✔️ **Layered grammar of graphics** 
 
-* Layered grammar of graphics
+The syntax of the code involves only important decisions that directly impact a user’s interpretation of the data
 
-* Package maintained by RStudio
+✔️ **It is easier to get good quality plots for publication** 
 
 ]
 
@@ -286,12 +302,13 @@ class: middle, center, inverse
 
 ]
 
+.footnote[[Why I use ggplot2](http://varianceexplained.org/r/why-I-use-ggplot2/) - David Robinson]
 
 ---
 
-## Example
+class: middle, center
 
-Maybe I can make the points more transparent?
+## A tip for effective web searching
 
 
 ![](slides_files/figure-html/ggplot21-1.png)&lt;!-- --&gt;
@@ -312,60 +329,41 @@ class: middle, center
 
 ---
 
-#### Answer 1
+#### Answer 1 ❌  
 
-&lt;img src="images/stack1.png" width="968" style="display: block; margin: auto;" /&gt;
+&lt;img src="images/stack1.png" width="550" style="display: block; margin: auto;" /&gt;
 
 
 .footnote[[Any way to make plot points in scatterplot more transparent in R?](https://stackoverflow.com/questions/12995683/any-way-to-make-plot-points-in-scatterplot-more-transparent-in-r)]
 ---
 
-#### Answer 2
+#### Answer 2 🎉 `ggplot()`
 
 &lt;img src="images/stack2.png" width="963" style="display: block; margin: auto;" /&gt;
 
 
 .footnote[[Any way to make plot points in scatterplot more transparent in R?](https://stackoverflow.com/questions/12995683/any-way-to-make-plot-points-in-scatterplot-more-transparent-in-r)]
----
-
-.pull-left[
-
-
-
-]
-
 
 ---
 
+class: middle, inverse, center
 
-## Some tips for searching information on the web
-
-* To make your search more specific, clarify if you are looking for a solution within the tidyverse packages.
-
-
-* The newer the post, the better.
-
---
-
-### This is practice! 🙌 
+### Now we are ready to learn more about `ggplot2`!
 
 ---
-
 
 background-image: url(images/cuadrados.png)
 background-size: cover
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
 
-### Books
+### References
 
 * Wickham, H., &amp; Grolemund, G. (2016). [R for data science: import, tidy, transform, visualize, and model data.](https://r4ds.had.co.nz/) O'Reilly Media, Inc.
 
-* Wickham, H. (2016). [Ggplot2: Elegant graphics for data analysis.](https://ggplot2-book.org/) Springer, 2016.
-
-*  https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html
-
 * Wickham, H. (2010). [A layered grammar of graphics](http://vita.had.co.nz/papers/layered-grammar.pdf). Journal of Computational and Graphical Statistics, 19(1), 3-28.
+
+* Wickham, H. (2016). [Ggplot2: Elegant graphics for data analysis.](https://ggplot2-book.org/) Springer, 2016.
 ]
 
 
@@ -377,14 +375,17 @@ background-size: cover
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
 
-### Blogposts
+### Blogposts - Cheat Sheets
 
-* [Why I don't use ggplot2](https://simplystatistics.org/2016/02/11/why-i-dont-use-ggplot2/) - Jeff Leek
+* [R Syntax Comparison Cheat Sheet](https://www.amelia.mn/blog/teaching/2018/02/11/Syntax-comparison.html) by Amelia McNamara
 
-* [Why I use ggplot2](http://varianceexplained.org/r/why-I-use-ggplot2/) - David Robinson
+* [Why I use ggplot2](http://varianceexplained.org/r/why-I-use-ggplot2/) by David Robinson
 
-* [Comparing ggplot2 and R Base Graphics](https://flowingdata.com/2016/03/22/comparing-ggplot2-and-r-base-graphics/) - Nathan Yau
 ]
+
+
+---
+
 
 
 

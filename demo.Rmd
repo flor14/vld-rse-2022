@@ -7,7 +7,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(ggplot2)
+library(ggplot2) # upload diamonds dataset
 ```
 
 ## R Syntax Comparison 
@@ -15,6 +15,12 @@ library(ggplot2)
 > Extracted from [R Syntax Comparison Cheat Sheet](https://www.amelia.mn/blog/teaching/2018/02/11/Syntax-comparison.html) from Amelia McNamara
 
 Syntax is the set of rules that govern what code works doesn’t work in a programming language. Most programming languages offer one standardized syntax, but R allows package developers to specify their own syntax. As a result, there is a large variety of (equally valid) R syntaxes. 
+
+```{r database}
+diamonds
+```
+
+
 
 ### Base R syntax
 
@@ -40,7 +46,7 @@ plot(x = diamonds$carat, #dollar sign operator
 
 ```{r ggplot2}
 
-library(ggplot2) 
+library(ggplot2) # call the library
 
 ggplot(data = diamonds, aes(x = carat, y = price)) + 
   geom_point()

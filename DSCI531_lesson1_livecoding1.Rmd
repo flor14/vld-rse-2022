@@ -1,0 +1,92 @@
+---
+title: "DSCI531_live_coding1"
+author: "Florencia D'Andrea"
+date: "19/3/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE, 
+                      warning = FALSE,
+                      fig.align='center', 
+                      fig.height=5,
+                      fig.width =5)
+library(ggplot2) # to call diamonds database
+```
+
+## Plots 
+### Base R
+
+```{r baser}
+
+plot(x = diamonds$carat,
+     y = diamonds$price)
+
+```
+
+### Tidyverse
+
+```{r ggplot2}
+
+library(ggplot2)
+
+ggplot(data = diamonds, aes(x = carat , y = price)) +
+  geom_point()
+
+```
+
+## Other example 
+
+Extracted from [Why I use ggplot2](http://varianceexplained.org/r/why-I-use-ggplot2/) by David Robinson)
+
+```{r load_database}
+library(ggplot2)
+library(dplyr)
+
+load(url("http://varianceexplained.org/files/ggplot2_example.rda"))
+top_data <- cleaned_data %>%
+    semi_join(top_intercept, by = "systematic_name")
+```
+
+### Base R
+
+```{r baser_example2, fig.height=7, fig.width =7}
+
+par(mar = c(1.5, 1.5, 1.5, 1.5))
+
+colors <- 1:6
+names(colors) <- unique(top_data$nutrient)
+
+# legend approach from http://stackoverflow.com/a/10391001/712603
+m <- matrix(c(1:20, 21, 21, 21, 21), nrow = 6, ncol = 4, byrow = TRUE)
+layout(mat = m, heights = c(.18, .18, .18, .18, .18, .1))
+
+top_data$combined <- paste(top_data$name, top_data$systematic_name)
+for (gene in unique(top_data$combined)) {
+    sub_data <- filter(top_data, combined == gene)
+    plot(expression ~ rate, sub_data, col = colors[sub_data$nutrient], main = gene)
+    for (n in unique(sub_data$nutrient)) {
+        m <- lm(expression ~ rate, filter(sub_data, nutrient == n))
+        if (!is.na(m$coefficients[2])) {
+            abline(m, col = colors[n])
+        }
+    }
+}
+
+# create a new plot for legend
+plot(1, type = "n", axes = FALSE, xlab = "", ylab = "")
+legend("top", names(colors), col = colors, horiz = TRUE, lwd = 4)
+```
+
+### Tidyverse
+
+```{r ggplot2_example2, fig.height=7, fig.width =8}
+ggplot(top_data, aes(rate, expression, color = nutrient)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE) +
+    facet_wrap(~name + systematic_name, scales = "free_y")
+```
+
+
+

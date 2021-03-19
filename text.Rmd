@@ -1,0 +1,116 @@
+---
+title: "clase"
+author: "Florencia D'Andrea"
+date: "18/3/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Hello
+
+Today we are starting the classes on data visualization I.
+
+Probably you are already familiar with some of the tools you need in a typical data science project.
+Some of these tools, as the once you need to import, tidy and transform data were covered in the course Programming for Data Manipulation.
+In this course we are going to focus on data visualization
+
+---
+
+To start this class, I want you to look closely to these 2 plots. Both plots were made using the same dataset and are showing information on the same 2 variables.
+But I want you to notice that they look quite different. Have a look for example to the background, or to the labels.
+
+So I want you to answer which ones onf these statements is true :
+
+Do you thing these 2 plots, that look really different were made using different programming languages? If you think this is feasible, please select A
+
+Or, maybe these 2 plots were made using R? 
+
+If you thing that there is other option, please select the opetion C and let me know what are you thinking about
+
+I would not expect to use more that 5 minutes for this exercises, please answer the first thing that comes to your mind. I will move forward until the most of the class answered.
+
+---
+
+The correct answer is B, this means that both plots were made with R. The difference is that the plot on the left has been nult with the base R function `plot()` and the plot on the right is made with the tidyverse package ggplot 2
+
+
+---
+
+Probably you remember tidyverse packages from the previuos course where you have learned about the packages as tidyr and dplyr.
+ 
+In this particular case, ggplot2 is the plotting tidyverse package.
+
+---
+
+in general we can say that we will be able to find a particular package part of the data analysis we want to do
+
+---
+
+So I will show you how this 2 plots can be coded on R, before move forward.
+
+I have this rmarkdown prepared with 2 chuncks. In one i will reprduce the base  plot and in the other the ggplot2 option.
+
+But first let's remember how diamonds dataset look like. In this case we are interested in carat and price variables.
+
+So, let's start considering the differences that we already know.
+
+For base R we use plot function
+
+For ggplot2, we use ggplot() function and we have to call the library on advance. Remember we are working with a package in this case.
+
+---
+
+Let see what happens with plot.
+
+We have 2 arguments, as we want to plot on the x axis carat and on the y axis price.
+
+To write these, I will write diamonds and then the dollar sign operator to point that I am looking for the variable carat. We can see on screen that RStudio helps me offering a list with the variables associated to the diamonds package. I will repeat this operation for the y variable.
+
+If we run this, we will be able to reproduce the plot.
+
+
+Now, let's see what happens with ggplot2.
+
+In this case the first thing we have to specify is the data we are using. Then there is another funcion called aes(), that we have to use to include tha variables that we want to plot. In this particular case, we are not going to use the dollar sign operator, if not we should only mention the name of the variables we are using.
+
+Let's have a look
+
+Ok, we can see the coordinates system and the variables, that are being read by ggplot, but for some reason we still do not see the points.
+
+To be able to see the plots, we need to define a new layer. 
+To add a new layer I have ti include a plus sign at the end of this line. This will understand that I there is one more line that ggplot should consider fot plotting.
+I will add a function that specifies which kind of  element I want to plot: they could be lines, points, polygons and much more.
+
+After writing this geom, I have reproduced the same plot.
+
+As you can see the way we write a similar plot in R could imply to write really diferent code.
+
+
+---
+
+In this course we are going to learn ggplot2
+
+
+Why? There are many reasons. 
+
+They look nicer witil less code
+
+Alse they use the the layers grammar of graphics that make the plots easy to do
+
+these package is mantained by RSTudio, that means that we do not expect it to be abanoned soon. Also it is broadly use and have more than 50 extensions that you can use with it.
+
+
+---
+
+
+Maybe at this point you are wondering why are you are teaching us about how to plot with base R if we are going to use the tidyverse
+
+And I want to highlight that not only the plots are different if not the syntax is different too.
+
+---
+
+
+
