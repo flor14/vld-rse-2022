@@ -21,26 +21,21 @@ library(ggplot2) # to call diamonds database
 
 ```{r baser}
 
-plot(x = diamonds$carat,
-     y = diamonds$price)
+
 
 ```
-
-
 
 
 ### Tidyverse
 
 ```{r ggplot2}
 
-library(ggplot2)
 
-ggplot(data = diamonds, aes(x = carat, y = price)) +
-  geom_point()
 
 ```
 
 
+Do you have any question?
 
 
 

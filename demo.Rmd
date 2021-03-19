@@ -33,8 +33,8 @@ The **dollar sign syntax**, sometimes called base R syntax, expected by most bas
 
 ```{r baser}
 
-plot(x = diamonds$carat, #dollar sign operator
-     y = diamonds$price)
+plot(x = diamonds[,1], #dollar sign operator
+     y = diamonds[,1])
 
 ```
 
