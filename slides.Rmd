@@ -364,6 +364,14 @@ ggplot(diamonds, aes(x = carat, y = price, col = cut)) +
 
 .footnote[[Why I use ggplot2](http://varianceexplained.org/r/why-I-use-ggplot2/) - David Robinson]
 
+
+---
+
+class: middle, center
+
+```{r google,echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/google.png")
+```
 ---
 
 class: middle, center
@@ -376,15 +384,6 @@ ggplot(diamonds, aes(x=carat, y=price))+
   geom_point()
 ```
 
-
-
----
-
-class: middle, center
-
-```{r google,echo = FALSE, fig.align='center'}
-knitr::include_graphics("images/google.png")
-```
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "DSCI531_live_coding1"
+title: "DSCI531_lesson1_livecoding1"
 author: "Florencia D'Andrea"
 date: "19/3/2021"
 output: html_document
@@ -16,14 +16,18 @@ library(ggplot2) # to call diamonds database
 ```
 
 ## Plots 
+
 ### Base R
 
 ```{r baser}
 
 plot(x = diamonds$carat,
-     y = diamonds$price )
+     y = diamonds$price)
 
 ```
+
+
+
 
 ### Tidyverse
 
@@ -32,9 +36,15 @@ plot(x = diamonds$carat,
 library(ggplot2)
 
 ggplot(data = diamonds, aes(x = carat, y = price)) +
-   geom_point()
+  geom_point()
 
 ```
+
+
+
+
+
+
 
 ## Other example 
 
