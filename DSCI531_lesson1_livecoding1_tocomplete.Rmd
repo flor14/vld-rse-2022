@@ -21,15 +21,12 @@ library(ggplot2) # to call diamonds database
 
 ```{r baser}
 
-
-
 ```
 
 
 ### Tidyverse
 
 ```{r ggplot2}
-
 
 
 ```
