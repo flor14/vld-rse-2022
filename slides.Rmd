@@ -1,5 +1,5 @@
 ---
-title: "Data Visualization with R"
+title: "Data Visualization I"
 subtitle: "Class demo"  
 author: 
   - "Florencia D'Andrea"
@@ -24,8 +24,6 @@ library(xaringanthemer)
 library(xaringanExtra)
 library(tidyverse)
 library(knitr)
-library(icon)
-library(kableExtra)
 library(nomnoml)
 ```
 
@@ -215,7 +213,7 @@ ggplot(diamonds, aes(x=carat, y=price))+
 **A.** These plots were made using different programming languages.
 
 
-<span style="background-color: lightblue">**B.** Both plots plots were made using R.</mark>
+<span style="background-color: lightblue">**B.** Both plots were made using R.</mark>
 
 
 **C.** None of the above.
@@ -244,7 +242,7 @@ ggplot(diamonds, aes(x=carat, y=price))+
 
 ]
   
-#### <pre class="tab">base R                 tidyverse</pre>
+#### <pre class="tab">base R                     tidyverse</pre>
 
 
 ---
@@ -458,6 +456,11 @@ background-size: cover
 
 ---
 
+```{r cmp,echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/concept_map.png")
+```
+
+.footnote[Concept Map - Data Visualization in R - lesson 1]
 
 
 

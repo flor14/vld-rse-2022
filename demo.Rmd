@@ -12,7 +12,7 @@ library(ggplot2) # upload diamonds dataset
 
 ## R Syntax Comparison 
 
-> Extracted from [R Syntax Comparison Cheat Sheet](https://www.amelia.mn/blog/teaching/2018/02/11/Syntax-comparison.html) from Amelia McNamara
+> Extracted from [R Syntax Comparison Cheat Sheet](https://www.amelia.mn/blog/teaching/2018/02/11/Syntax-comparison.html) by Amelia McNamara
 
 Syntax is the set of rules that govern what code works doesn’t work in a programming language. Most programming languages offer one standardized syntax, but R allows package developers to specify their own syntax. As a result, there is a large variety of (equally valid) R syntaxes. 
 
