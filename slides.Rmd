@@ -17,7 +17,9 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
+options(htmltools.dir.version = FALSE,
+        message = FALSE,
+        warning = FALSE)
 library(xaringanthemer)
 library(xaringanExtra)
 library(tidyverse)
@@ -79,12 +81,15 @@ meta() %>%
 ```
 
 
-### Objectives of this 15' class
+### Learning objectives (15' class)
 
-* Recognize that `ggplot()` is one of the possible functions to plot in R
-* Understand that `ggplot2` is a tidyverse package and presents a particular syntax
+The students should...
 
---
+* ...understand that `ggplot2::ggplot()` and `plot()` are two of the possible functions to plot in R, and that in this course we will focus on the first one.
+
+* ...recognize that Tidyverse and base R have different R syntax 
+
+---
 
 ### The students are familiar with...
 
@@ -92,6 +97,7 @@ meta() %>%
 * RStudio IDE
 * RMarkdown
 * The use of R packages
+* Tidyverse
 
 ---
 
@@ -101,17 +107,18 @@ class: bottom
 
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
-## Data Visualization 
-#### Class 1: Introduction the `ggplot2` package 
+## Data Visualization I
+#### Lesson 1: Orientation to statistical graphics
 
 ]
 
 ---
 
+
 ## Data Science
 
 
-```{r,echo = FALSE, out.width=550}
+```{r,echo = FALSE, out.width=650, fig.align='center'}
 knitr::include_graphics("images/data.png")
 ```
 
@@ -169,11 +176,7 @@ ggplot(diamonds, aes(x=carat, y=price))+
 
 --
 
-**C.** Only the graph on the right was made with R.
-
---
-
-**D.** None of the above.
+**C.** None of the above.
 
 ---
 
@@ -203,12 +206,7 @@ ggplot(diamonds, aes(x=carat, y=price))+
 <span style="background-color: lightblue">**B.** Both plots were made with R.</mark>
 
 
-
-**C.** Only the graph on the right was made with R.
-
-
-
-**D.** None of the above.
+**C.** None of the above.
 
 ---
 
@@ -224,7 +222,7 @@ plot(diamonds$carat, diamonds$price)
 
 .pull-right[
 
-```{r ggplot4, fig.height=4, fig.width=4, echo=FALSE}
+```{r ggplot44, fig.height=4, fig.width=4, echo=FALSE}
 ggplot(diamonds, aes(x=carat, y=price))+
   geom_point()
 ```
@@ -233,19 +231,40 @@ ggplot(diamonds, aes(x=carat, y=price))+
 
 
 ]
-
-    📈     
-#### <pre class="tab">base R      tidyverse</pre>
+  
+#### <pre class="tab">base R                         tidyverse</pre>
 
 <span style="background-color: lightblue">**B.** Both are made with R.</mark>
 
-.footnote[Other examples  [here](https://flowingdata.com/2016/03/22/comparing-ggplot2-and-r-base-graphics/)]
+---
+
+class: middle, center
+
+
+.pull-left[
+
+```{r, echo = FALSE, fig.align='center', out.width=250}
+knitr::include_graphics("images/hex.png")
+```
+
+]
+
+.pull-right[
+
+```{r ggplot4, fig.height=4, fig.width=4, echo=FALSE}
+ggplot(diamonds, aes(x=carat, y=price))+
+  geom_point()
+```
+
+]
+
+#### `ggplot2` is the plotting package of the `tidyverse`
 
 ---
 
-## Tidyverse packages
+## Tidyverse 
 
-* Opinionated collection of **R packages** designed for data science
+Opinionated collection of **R packages** designed for data science
 
 
 ```{r tidy,echo = FALSE, fig.align='center'}
@@ -255,126 +274,111 @@ knitr::include_graphics("images/tidytools.png")
 
 .footnote[[Tidyverse webpage](https://www.tidyverse.org/)]
 
----
-
-
-```{r, echo = FALSE, fig.align='center', out.width=250}
-knitr::include_graphics("images/hex.png")
-```
-
-#### `ggplot2` is the plotting package of the `tidyverse`
----
-
-class: middle, center
-
-.pull-left[
-
-```{r plot6, fig.height=4, fig.width=4, echo=FALSE}
-plot(diamonds$carat, diamonds$price)
-```
-
-]
-
-.pull-right[
-
-```{r ggplot6, fig.height=4, fig.width=4, echo=FALSE}
-ggplot(diamonds, aes(x=carat, y=price))+
-  geom_point()
-```
-
-]
-
-### Let's have a look at the code
 
 ---
 
 class: inverse, middle, center
 
-
 ## Live coding #1
 
-
----
-
-## There are multiple and equally valid R syntaxes. 
-
-```{r syntax,echo = FALSE, fig.align='center'}
-knitr::include_graphics("images/syntax.png")
-```
-
-.footnote[[R Syntax Comparison - Amalia McNamara](https://www.amelia.mn/Syntax-cheatsheet.pdf)
+#### `plot()` and `ggplot()`
 
 ---
 
 .pull-left[
 
-**dollar sign / base R syntax**
-base R functions
+#### Base R syntax
 
-
-* dataset$variablename
-
-* square bracket subsetting
-dataset[1,2].
+```{r plot14, fig.height=4, fig.width=4}
+plot(diamonds$carat, 
+     diamonds$price)
+```
 
 ]
 
 .pull-right[
 
-**tidyverse syntax** 
-`dplyr`, `tidyr`, and more. 
+#### Tidyverse syntax
 
-These functions expect data to be the first argument,
-which allows them to work with the “pipe” (**%>%**) from the
-`magrittr` package. 
-
-`ggplot2` has a 
+```{r ggplot14, fig.height=4, fig.width=4}
+ggplot(diamonds,
+       aes(x=carat, 
+           y=price))+
+  geom_point()
+```
 ]
 
+
 ---
 
-```{r ggplot9, fig.height=4, fig.width=4}
-library(dplyr)
-library(ggplot2)
+class: middle, center, inverse
 
-diamonds %>% 
-  mutate(price = price*1000) %>% 
-  filter(cut == "Premium") %>% 
-  ggplot(aes(x = carat, y = price, color = clarity))+
-  scale_color_viridis_d()+
-  geom_point()+
-  theme_bw()
+
+### In this course we are going to use `ggplot2` 
+
+---
+
+<img src="hex.png" width="10%" align="right" />
+
+### Why to use `ggplot2`?
+
+
+.pull-left[
+
+* once fluent, can make most plots up to **publication quality standard** very quickly.
+
+* Layered grammar of graphics
+
+* Package maintained by RStudio
+
+]
+
+.pull-right[
+
+```{r ggplot11, fig.height=4, fig.width=4, echo=FALSE, message = FALSE, warning = FALSE}
+ggplot(diamonds, aes(x = carat, y = price, col = cut)) +
+    geom_point(alpha = 0.2) +
+    scale_color_viridis_d(direction = -1) +
+    geom_smooth(method = "gam")+
+    theme_classic()
+```
+
+]
+
+
+---
+
+## Example
+
+Maybe I can make the points more transparent?
+
+
+```{r ggplot21, fig.height=4, fig.width=4, echo=FALSE}
+ggplot(diamonds, aes(x=carat, y=price))+
+  geom_point()
+```
+
+
+
+---
+
+class: middle, center
+
+```{r google,echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/google.png")
 ```
 
 ---
 
-## Tidyverse syntax
-#### `ggplot2` uses plus signs (**+**) to string pieces together
+#### Question
 
-```{r ggplot10, fig.height=4, fig.width=4}
-library(dplyr)
-library(ggplot2)
-
-diamonds %>% 
-  mutate(price = price*1000) %>% 
-  filter(cut == "Premium") %>% 
-  ggplot(aes(x = carat, y = price, color = clarity))+
-  scale_color_viridis_d()+
-  geom_point()+
-  theme_bw()
+```{r pregunta,echo = FALSE, fig.align='center'}
+knitr::include_graphics("images/pregunta.png")
 ```
 
-
 ---
 
-class: middle, inverse
-
-### Why it is important to be aware of syntax differences?
-
-
----
-
-
+#### Answer 1
 
 ```{r,echo = FALSE, fig.align='center'}
 knitr::include_graphics("images/stack1.png")
@@ -383,6 +387,8 @@ knitr::include_graphics("images/stack1.png")
 
 .footnote[[Any way to make plot points in scatterplot more transparent in R?](https://stackoverflow.com/questions/12995683/any-way-to-make-plot-points-in-scatterplot-more-transparent-in-r)]
 ---
+
+#### Answer 2
 
 ```{r,echo = FALSE, fig.align='center'}
 knitr::include_graphics("images/stack2.png")
@@ -404,20 +410,19 @@ plot(diamonds$carat, diamonds$price)
 ---
 
 
+## Some tips for searching information on the web
+
+* To make your search more specific, clarify if you are looking for a solution within the tidyverse packages.
 
 
+* The newer the post, the better.
 
+--
 
----
-
-## Take home messages
-
-* There are different R syntaxes. 
-
-
-
+### This is practice! 🙌 
 
 ---
+
 
 background-image: url(images/cuadrados.png)
 background-size: cover
@@ -431,6 +436,8 @@ background-size: cover
 * Wickham, H. (2016). [Ggplot2: Elegant graphics for data analysis.](https://ggplot2-book.org/) Springer, 2016.
 
 *  https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html
+
+* Wickham, H. (2010). [A layered grammar of graphics](http://vita.had.co.nz/papers/layered-grammar.pdf). Journal of Computational and Graphical Statistics, 19(1), 3-28.
 ]
 
 
@@ -450,107 +457,6 @@ background-size: cover
 
 * [Comparing ggplot2 and R Base Graphics](https://flowingdata.com/2016/03/22/comparing-ggplot2-and-r-base-graphics/) - Nathan Yau
 ]
-
----
-
-#### Could you say which of these statements do you think is more appropriate?
-
---
-**A.** These graphics were made with different softwares.
-
---
-**B.** Both are made with R, only the graph on the right has more details.
-
---
-**C.** Only the graph on the right was made with R.
-
---
-**D.** None of the above.
-
-
----
-
-#### Could you say which of these statements do you think is more appropriate?
-
-
-**A.** These graphics were made with different softwares.
-
-This is the *common sense* answer
-
-**Epistemological obstacle**
-> There is only one way to plot with R
-
-**Potential problem**
-* It is likely that student doesn't know about the Tidyverse
-
-**Concept to work**
-* There may be several different ways to produce equivalent results using the same programming language.
-* This preconception can cause problems when you want to find information about graphics with R on the web.
-
-
-
-Other option could be:
-One of this graphics is python and the other is R
-
----
-
-#### Could you say which of these statements do you think is more appropriate?
-
-
-**B.** Both are made with R.
-
-This is the correct answer
-
-The students...
-* ...are aware that you can make different plots using R
-* ...not necessarily know about the Tidyverse.
-
-**Concept to work**
-Let's make explicit that ggplot is one of the Tidyverse packages.
-
-```{nomnoml}
-# stroke: orange
-#.box: fill=#8f8 visual=ellipse
-
-[ggplot2 package]-[tidyverse]
-[base r]-[<box>R]
-[tidyverse]-[<box>R]
-[`plot()`]-[base r]
-[`ggplot()`]-[ggplot2 package]
-
-```
-
-
-
-
----
-
-#### Could you say which of these statements do you think is more appropriate?
-
-
-
-**C.** Only the graph on the right was made with R.
-
-
-Students only recognize ggplot as the R plots.
-
-Probably students answering this are familiarized with the Tidyverse, but they do not know that basically ggplot is build from R base code and that there are other ways to 
-
----
-
-#### Could you say which of these statements do you think is more appropriate?
-
-
-**D.** Other:
-
- Are there any options that I am not considering? Let's listen to the students
-
-
-
-
-
-
-
 
 
 

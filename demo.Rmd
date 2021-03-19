@@ -7,20 +7,44 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
 ```
 
-## Plots 
+## R Syntax Comparison 
 
-### base R
+> Extracted from [R Syntax Comparison Cheat Sheet](https://www.amelia.mn/blog/teaching/2018/02/11/Syntax-comparison.html) from Amelia McNamara
 
-```{r}
+Syntax is the set of rules that govern what code works doesn’t work in a programming language. Most programming languages offer one standardized syntax, but R allows package developers to specify their own syntax. As a result, there is a large variety of (equally valid) R syntaxes. 
 
+### Base R syntax
+
+The **dollar sign syntax**, sometimes called base R syntax, expected by most base R functions. 
+
+* It is characterized by the use of `dataset$variablename`
+* Square bracket subsetting
+`dataset[1,2]`.
+
+
+```{r baser}
+
+plot(x = diamonds$carat, #dollar sign operator
+     y = diamonds$price)
 
 ```
 
-### ggplot
+### Tidyverse syntax
 
-```{r}
+* These functions expect **data** to be the first argument, which allows them to work with the “pipe” (`%>%`) from the `magrittr` package
+
+* Typically, `ggplot2` is thought of as part of the tidyverse, although it has its own flavor of the syntax using plus signs (`+`) to string pieces together. 
+
+```{r ggplot2}
+
+library(ggplot2) 
+
+ggplot(data = diamonds, aes(x = carat, y = price)) + 
+  geom_point()
 
 ```
 
+## 
