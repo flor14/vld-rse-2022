@@ -92,7 +92,7 @@ class: bottom
 
 .bg-white.b--dark-grey.ba.bw2.br3.shadow-5.ph4.mt5[
 
-.large[ ### Vive la différence - research software engineers | Apr **2022** ]
+.large[ ### Vive la différence - research software engineers | Florencia D'Andrea | **2022** ]
 ]
 
 
@@ -112,8 +112,7 @@ background-size: cover
 class: bottom
 
 .bg-white.b--dark-grey.ba.bw2.br3.shadow-5.ph4.mt5[
-Incoming class 1st term 2007
-Faculty of Sciences -  University of Buenos Aires
+Incoming class 1st term 2007 - Faculty of Sciences -  University of Buenos Aires
 ]
 
 ---
@@ -295,7 +294,7 @@ class: middle
 
 class: middle
 
-> Networking and interaction with likeminded people in different **communities** was key to helping me find the important sources of information.
+> Networking and interaction with likeminded people in different **communities** was key to helping me find the technical resources I needed.
 
 ---
 
@@ -315,7 +314,7 @@ class: middle
 .bg-white.b--dark-grey.ba.bw2.br3.shadow-5.ph4.mt5[
 **Thank you!**
 
- Florencia D'Andrea, PhD <br>
+ Florencia D'Andrea, Ph.D. <br>
  twitter: [@cantoflor_87]("http://twitter.com/cantoflor_87")<br>
  web: [florencia.netlify.app]("https://florencia.netlify.app/")<br>
 ]
