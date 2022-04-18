@@ -178,6 +178,19 @@ knitr::include_graphics("images/computer.png")
 knitr::include_graphics("images/logos.png")
 ```
 
+
+---
+
+## LatinR + The Carpentries
+
+```{r ghtw222, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
+library(tweetrmd)
+tweet_screenshot("https://twitter.com/cantoflor_87/status/1038005760385536001?s=20&t=Vx0P3p1So0Qjkt-vjhSaUA")
+```
+
+.footnote[[Tweet](https://twitter.com/cantoflor_87/status/1038005760385536001?s=20&t=Vx0P3p1So0Qjkt-vjhSaUA)]
+
+
 ---
 
 .pull-left[
@@ -195,19 +208,16 @@ tweet_screenshot("https://twitter.com/RLadiesBA/status/1037820512473411584?s=20&
 ```
 ]
 
-
-
-
 ---
 
 class: middle
 
-.pull-left[
+.pull-top[
 ```{r,echo = FALSE, out.width=400, fig.align='center'}
 knitr::include_graphics("images/software.jpg")
 ```
 ]
-.pull-right[
+.pull-buttom[
 
 software development and databases produced in research deserve the **same level of recognition and quality as scientific articles**
 ]
@@ -233,31 +243,10 @@ knitr::include_graphics("images/bsbr.png")
 
 ]
 
-
-
 .footnote[[Twitter](https://twitter.com/ReproHack) / [Slack](https://reprohack-autoinvite.herokuapp.com/)]
 
----
-
-## LatinR + The Carpentries
-
-```{r ghtw222, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
-library(tweetrmd)
-tweet_screenshot("https://twitter.com/cantoflor_87/status/1038005760385536001?s=20&t=Vx0P3p1So0Qjkt-vjhSaUA")
-```
-
-.footnote[[Tweet](https://twitter.com/cantoflor_87/status/1038005760385536001?s=20&t=Vx0P3p1So0Qjkt-vjhSaUA)]
 
 
----
-
-
-```{r,echo = FALSE, out.width=400, fig.align='center'}
-knitr::include_graphics("images/CARTEL-CURSO.jpg")
-```
-
-
-.footnote[[SETAC ARG 2018](https://setac2018.wordpress.com/?fbclid=IwAR0phe98SVeIHfhfSQFSZcWY3htHQNHjGbM2XsJl-iqfSiCDPYmga_sqBVY)]
 
 ---
 
@@ -268,6 +257,23 @@ knitr::include_graphics("images/CARTEL-CURSO.jpg")
 xaringanExtra::embed_xaringan(url = "https://flor14.github.io/latinr-reprohack/index.html#1")
 ```
 
+---
+
+class: middle
+
+* Certifications
+* Conferences
+* Code published in [JOSS](https://joss.theoj.org/)
+
+---
+
+
+```{r,echo = FALSE, out.width=300, fig.align='center'}
+knitr::include_graphics("images/CARTEL-CURSO.jpg")
+```
+
+
+.footnote[[SETAC ARG 2018](https://setac2018.wordpress.com/?fbclid=IwAR0phe98SVeIHfhfSQFSZcWY3htHQNHjGbM2XsJl-iqfSiCDPYmga_sqBVY)]
 
 ---
 
@@ -277,10 +283,23 @@ knitr::include_graphics("images/RSE.png")
 
 .footnote[[Software Sustainability Institute blog](https://www.software.ac.uk/news/complete-international-rse-survey-and-help-us-understand-rse-community)]
 
+---
+
+
+### Is the access to resources more democratic since the pandemic?
+
+```{r,echo = FALSE, out.width=500, fig.align='center'}
+knitr::include_graphics("images/remote.jpg")
+```
+
+.footnote[[The Turing Way Community, & Scriberia. (2020)]( http://doi.org/10.5281/zenodo.3695300)]
 
 ---
 
 class: middle
+
+
+## Today
 
 ```{r,echo = FALSE, out.width=400, fig.align='center'}
 knitr::include_graphics("images/mdsl.png")
@@ -290,13 +309,13 @@ knitr::include_graphics("images/mdsl.png")
 
 class: middle
 
-> We need greater career opportunities to switch to data science / software development areas.
+> We need more **career opportunities** that facilitate training in areas related to data science/software development.
 
 ---
 
 class: middle
 
-> Networking and interaction with likeminded people in different communities was key to helping me find the important sources of information.
+> Networking and interaction with likeminded people in different **communities** was key to helping me find the important sources of information.
 ---
 
 class: middle
@@ -305,13 +324,6 @@ class: middle
 **other almost invisible barriers remain**.
 
 
----
-
-```{r,echo = FALSE, out.width=600, fig.align='center'}
-knitr::include_graphics("images/HealthyLeadership.jpg")
-```
-
-.footnote[[The Turing Way Community, & Scriberia. (2020)]( http://doi.org/10.5281/zenodo.3695300)]
 
 ---
 
