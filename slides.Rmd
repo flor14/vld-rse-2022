@@ -116,10 +116,28 @@ Incoming class 1st term 2007
 Faculty of Sciences -  University of Buenos Aires
 ]
 
+---
+
+class: middle
+
+.pull-left[
+```{r ghtwcom, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
+knitr::include_graphics("images/computer.png")
+```
+]
+
+.pull-right[
+> "Argentina's a country budget to finance science is noticeably lower than in other countries and historically **unstable**"
+
+]
+
+.footnote[[De Paepe, J. L., et al. "Researchers in Argentina: Scientific vocation, publication strategies and time‐management tactics." Austral Ecology 46.8 (2021): 1177-1185.](https://onlinelibrary.wiley.com/doi/full/10.1111/aec.13055)]
+
+
 
 ---
 
-## Fellow
+class: middle
 
 .pull-left[
 
@@ -138,68 +156,14 @@ tweet_screenshot("https://twitter.com/RLadiesBA/status/1125900251649515520?s=20&
 ]
 
 ---
+
 class: middle
-
-.pull-left[
-```{r,echo = FALSE, out.width=500, fig.align='center'}
-knitr::include_graphics("images/personas.png")
-```
-]
-
-.pull-right[
-
-> "**Peer interaction** not only had a positive influence but was also selected as new idea stimulator..."
-
-]
-
-.footnote[[De Paepe, J.L., et al. "Researchers in Argentina: Scientific vocation, publication strategies and time‐management tactics." Austral Ecology 46.8 (2021): 1177-1185.](https://onlinelibrary.wiley.com/doi/full/10.1111/aec.13055)]
-
----
-class: middle
-
-.pull-left[
-```{r ghtwcom, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
-knitr::include_graphics("images/computer.png")
-```
-]
-
-.pull-right[
-> "Argentina's a country budget to finance science is noticeably lower than in other countries and historically **unstable**"
-
-]
-
-.footnote[[De Paepe, J. L., et al. "Researchers in Argentina: Scientific vocation, publication strategies and time‐management tactics." Austral Ecology 46.8 (2021): 1177-1185.](https://onlinelibrary.wiley.com/doi/full/10.1111/aec.13055)]
-
----
-
-## One thing leaves to another
-
-```{r ghtwcom2, echo=FALSE, fig.align="center", out.width=600}
-knitr::include_graphics("images/logos.png")
-```
-
-
----
-
-## LatinR + The Carpentries
-
-```{r ghtw222, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
-library(tweetrmd)
-tweet_screenshot("https://twitter.com/cantoflor_87/status/1038005760385536001?s=20&t=Vx0P3p1So0Qjkt-vjhSaUA")
-```
-
-.footnote[[Tweet](https://twitter.com/cantoflor_87/status/1038005760385536001?s=20&t=Vx0P3p1So0Qjkt-vjhSaUA)]
-
-
----
 
 .pull-left[
 ```{r 11, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
 library(tweetrmd)
 tweet_screenshot("https://twitter.com/RLadiesBA/status/1037807655342026752?s=20&t=36flSCmHWnCDnULDIzSDHw")
 ```
-
-
 ]
 .pull-right[
 ```{r 22, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
@@ -208,21 +172,15 @@ tweet_screenshot("https://twitter.com/RLadiesBA/status/1037820512473411584?s=20&
 ```
 ]
 
+
 ---
 
 class: middle
 
-.pull-top[
-```{r,echo = FALSE, out.width=400, fig.align='center'}
-knitr::include_graphics("images/software.jpg")
+```{r ghtwcom2, echo=FALSE, fig.align="center",out.width=700}
+knitr::include_graphics("images/logos.png")
 ```
-]
-.pull-buttom[
 
-software development and databases produced in research deserve the **same level of recognition and quality as scientific articles**
-]
-
-.footnote[[The Turing Way Community, & Scriberia. (2020)]( http://doi.org/10.5281/zenodo.3695300)]
 
 ---
 
@@ -246,6 +204,22 @@ knitr::include_graphics("images/bsbr.png")
 .footnote[[Twitter](https://twitter.com/ReproHack) / [Slack](https://reprohack-autoinvite.herokuapp.com/)]
 
 
+---
+
+class: middle
+
+.pull-top[
+```{r,echo = FALSE, out.width=400, fig.align='center'}
+knitr::include_graphics("images/software.jpg")
+```
+]
+.pull-buttom[
+
+software development and databases produced in research deserve the **same level of recognition and quality as scientific articles**
+]
+
+.footnote[[The Turing Way Community, & Scriberia. (2020)]( http://doi.org/10.5281/zenodo.3695300)]
+
 
 
 ---
@@ -261,17 +235,23 @@ xaringanExtra::embed_xaringan(url = "https://flor14.github.io/latinr-reprohack/i
 
 class: middle
 
-* Certifications
-* Conferences
-* Code published in [JOSS](https://joss.theoj.org/)
+✅ Certifications
+✅ Conferences
+✅ Code published in [JOSS](https://joss.theoj.org/)
 
 ---
 
+class: middle
 
-```{r,echo = FALSE, out.width=300, fig.align='center'}
+.pull-left[
+```{r,echo = FALSE, out.width=200, fig.align='center'}
 knitr::include_graphics("images/CARTEL-CURSO.jpg")
 ```
+]
 
+.pull-right[
+First pre-conference workshop taught by a doctoral student - Society of Environmental Toxicology and Chemistry (SETAC) **chapter Argentina**
+]
 
 .footnote[[SETAC ARG 2018](https://setac2018.wordpress.com/?fbclid=IwAR0phe98SVeIHfhfSQFSZcWY3htHQNHjGbM2XsJl-iqfSiCDPYmga_sqBVY)]
 
@@ -301,7 +281,7 @@ class: middle
 
 ## Today
 
-```{r,echo = FALSE, out.width=400, fig.align='center'}
+```{r,echo = FALSE, out.width=300, fig.align='center'}
 knitr::include_graphics("images/mdsl.png")
 ```
 
@@ -316,6 +296,7 @@ class: middle
 class: middle
 
 > Networking and interaction with likeminded people in different **communities** was key to helping me find the important sources of information.
+
 ---
 
 class: middle
@@ -339,5 +320,23 @@ class: middle
  web: [florencia.netlify.app]("https://florencia.netlify.app/")<br>
 ]
 
+---
+
+
+<!-- class: middle -->
+
+<!-- .pull-left[ -->
+<!-- ```{r,echo = FALSE, out.width=500, fig.align='center'} -->
+<!-- knitr::include_graphics("images/personas.png") -->
+<!-- ``` -->
+<!-- ] -->
+
+<!-- .pull-right[ -->
+
+<!-- > "**Peer interaction** not only had a positive influence but was also selected as new idea stimulator..." -->
+
+<!-- ] -->
+
+<!-- .footnote[[De Paepe, J.L., et al. "Researchers in Argentina: Scientific vocation, publication strategies and time‐management tactics." Austral Ecology 46.8 (2021): 1177-1185.](https://onlinelibrary.wiley.com/doi/full/10.1111/aec.13055)] -->
 
 
