@@ -132,7 +132,7 @@ knitr::include_graphics("images/viaje.png")
 .pull-right[
 ```{r ghtwba2, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
 library(tweetrmd)
-tweet_screenshot("https://twitter.com/RLadiesBA/status/868517119528501248?s=20&t=36flSCmHWnCDnULDIzSDHw")
+tweet_screenshot("https://twitter.com/RLadiesBA/status/1125900251649515520?s=20&t=36flSCmHWnCDnULDIzSDHw")
 ```
 
 ]
@@ -239,7 +239,7 @@ knitr::include_graphics("images/bsbr.png")
 
 ---
 
-
+## LatinR + The Carpentries
 
 ```{r ghtw222, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
 library(tweetrmd)
@@ -252,51 +252,12 @@ tweet_screenshot("https://twitter.com/cantoflor_87/status/1038005760385536001?s=
 ---
 
 
-
-
-```{r ghtw11, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
-library(tweetrmd)
-tweet_screenshot("https://twitter.com/RLadiesBA/status/1299834952578674689?s=20&t=36flSCmHWnCDnULDIzSDHw")
-```
-
-.footnote[[Tweet](https://twitter.com/RLadiesBA/status/1299834952578674689?s=20&t=36flSCmHWnCDnULDIzSDHw)]
-
-
-
-
----
-
-.pull-left[
-
-```{r ghtw4, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
-library(tweetrmd)
-tweet_screenshot("https://twitter.com/ReproHack/status/1260125107667820544?s=20&t=Vx0P3p1So0Qjkt-vjhSaUA")
-```
-]
-
-.pull-right[
-
 ```{r,echo = FALSE, out.width=400, fig.align='center'}
 knitr::include_graphics("images/CARTEL-CURSO.jpg")
 ```
 
-]
 
-
-
-
-.footnote[[Tweet](https://twitter.com/ReproHack/status/1260125107667820544?s=20&t=Vx0P3p1So0Qjkt-vjhSaUA)]
-
----
-
-.pull-left[
-```{r,echo = FALSE, out.width=400, fig.align='center'}
-knitr::include_graphics("images/CARTEL-CURSO.jpg")
-```
-]
-.pull-right[
-
-]
+.footnote[[SETAC ARG 2018](https://setac2018.wordpress.com/?fbclid=IwAR0phe98SVeIHfhfSQFSZcWY3htHQNHjGbM2XsJl-iqfSiCDPYmga_sqBVY)]
 
 ---
 
@@ -319,26 +280,28 @@ knitr::include_graphics("images/RSE.png")
 
 ---
 
-```{r,echo = FALSE, out.width=300, fig.align='left'}
-knitr::include_graphics("images/mds.jpg")
+class: middle
+
+```{r,echo = FALSE, out.width=400, fig.align='center'}
+knitr::include_graphics("images/mdsl.png")
 ```
 
 ---
 
 class: middle
 
-We need greater career opportunities to switch to data science / software development areas.
+> We need greater career opportunities to switch to data science / software development areas.
 
 ---
 
 class: middle
 
-Networking and interaction with likeminded people in different communities was key to helping me find the important sources of information.
+> Networking and interaction with likeminded people in different communities was key to helping me find the important sources of information.
 ---
 
 class: middle
 
-While some barriers to the access of sources of knowledge have been eliminated with the pandemic,
+> While some barriers to the access of sources of knowledge have been eliminated with the pandemic,
 **other almost invisible barriers remain**.
 
 
