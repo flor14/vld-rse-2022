@@ -15,22 +15,23 @@
  *    - xaringan wiki: https://github.com/yihui/xaringan/wiki
  *    - remarkjs wiki: https://github.com/gnab/remark/wiki
  *
- *  Version: 0.3.0
+ *  Version: 0.4.0
  *
  * ------------------------------------------------------- */
-@import url(https://fonts.googleapis.com/css?family=Lora:Regular,400&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Roboto:Medium,500&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Spectral:Regular,400&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Spectral:SemiBold,600,Italic&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Fira+Mono&display=swap);
 
 
 :root {
   /* Fonts */
-  --text-font-family: Lora;
+  --text-font-family: Spectral;
   --text-font-is-google: 1;
   --text-font-family-fallback: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial;
   --text-font-base: sans-serif;
-  --header-font-family: Roboto;
+  --header-font-family: Spectral;
   --header-font-is-google: 1;
+  --header-font-family-fallback: Georgia, serif;
   --code-font-family: 'Fira Mono';
   --code-font-is-google: 1;
   --base-font-size: 20px;
@@ -46,16 +47,17 @@
   --header-color: #562457;
   --background-color: #ffffff;
   --link-color: #A406B2;
-  --text-bold-color: #0dc96f;
+  --text-bold-color: #e0128f;
   --code-highlight-color: rgba(255,255,0,0.5);
   --inverse-text-color: #ffffff;
   --inverse-background-color: #562457;
   --inverse-header-color: #ffffff;
+  --inverse-link-color: #A406B2;
   --title-slide-background-color: #562457;
   --title-slide-text-color: #ffffff;
   --header-background-color: #562457;
   --header-background-text-color: #ffffff;
-  --base: #0dc96f;
+  --base: #e0128f;
   --white: #FFFFFF;
   --black: #272822;
 }
@@ -70,7 +72,7 @@ body {
   color: var(--text-color);
 }
 h1, h2, h3 {
-  font-family: var(--header-font-family);
+  font-family: var(--header-font-family), var(--header-font-family-fallback);
   font-weight: 600;
   color: var(--header-color);
 }
@@ -101,11 +103,14 @@ h1, h2, h3 {
   color: #179c55;
 }
 .remark-slide-number {
-  color: #0dc96f;
+  color: #e0128f;
   opacity: 1;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
-strong { color: var(--text-bold-color); }
+strong {
+  font-weight: bold;
+  color: var(--text-bold-color);
+}
 a, a > code {
   color: var(--link-color);
   text-decoration: none;
@@ -127,6 +132,9 @@ a, a > code {
 .inverse h1, .inverse h2, .inverse h3 {
   color: var(--inverse-header-color);
 }
+.inverse a, .inverse a > code {
+  color: var(--inverse-link-color);
+}
 .title-slide, .title-slide h1, .title-slide h2, .title-slide h3 {
   color: var(--title-slide-text-color);
 }
@@ -143,10 +151,10 @@ a, a > code {
   float: left;
 }
 .left-column h2, .left-column h3 {
-  color: #0dc96f99;
+  color: #e0128f99;
 }
 .left-column h2:last-of-type, .left-column h3:last-child {
-  color: #0dc96f;
+  color: #e0128f;
 }
 .right-column {
   width: 75%;
@@ -161,14 +169,14 @@ a, a > code {
   float: right;
   width: 47%;
 }
-.pull-right ~ * {
+.pull-right + * {
   clear: both;
 }
 img, video, iframe {
   max-width: 100%;
 }
 blockquote {
-  border-left: solid 5px #0dc96f80;
+  border-left: solid 5px #e0128f80;
   padding-left: 1em;
 }
 .remark-slide table {
@@ -183,7 +191,7 @@ th, td {
   padding: 5px;
 }
 .remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) {
-  background: #CEF4E2;
+  background: #F8CFE8;
 }
 table.dataTable tbody {
   background-color: var(--background-color);
@@ -193,7 +201,7 @@ table.dataTable.display tbody tr.odd {
   background-color: var(--background-color);
 }
 table.dataTable.display tbody tr.even {
-  background-color: #CEF4E2;
+  background-color: #F8CFE8;
 }
 table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.5);

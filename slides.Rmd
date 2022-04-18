@@ -1,9 +1,9 @@
 ---
-title: "Data Visualization I"
-subtitle: "Class demo"  
+title: "Vive la différence"
+subtitle: "Research Software Engineers"  
 author: 
   - "Florencia D'Andrea"
-date: '21/12/2020'
+date: 'April 2022'
 output:
   xaringan::moon_reader:
     seal: false # saco filmina de inicio
@@ -23,6 +23,7 @@ options(htmltools.dir.version = FALSE,
 library(xaringanthemer)
 library(xaringanExtra)
 library(tidyverse)
+library(icons)
 library(knitr)
 library(nomnoml)
 ```
@@ -39,7 +40,7 @@ xaringanExtra::use_tachyons()
 xaringanExtra::use_fit_screen()
 xaringanExtra::use_tile_view() # O
 style_mono_accent(
-  base_color = "#0dc96f",
+  base_color = "#e0128f",
   background_color = "#ffffff",
   inverse_background_color = "#562457",
   header_color = "#562457",
@@ -48,13 +49,13 @@ style_mono_accent(
   code_inline_color = "#179c55",
   link_color= "#A406B2",
   text_font_size = "25px",
-  header_font_google = google_font("Roboto", "Medium", "500"), #Popper
-  text_font_google   = google_font("Lora", "Regular", "400"),
+  header_font_google = google_font("Spectral", "SemiBold", "600", "Italic"), #Popper
+  text_font_google   = google_font("Spectral", "Regular", "400"),
   code_font_google   = google_font("Fira Mono"),
   )
 ```
 
-```{r metathis, echo=FALSE}
+```{r metathis, echo=FALSE, message = FALSE, warning = FALSE}
 library(metathis)
 meta() %>%
   meta_name("github-repo" = "flor14/short_class.git") %>% 
@@ -68,7 +69,7 @@ meta() %>%
     image = "https://res.cloudinary.com/flor/image/upload/v1614305498/75581_l4kohr.jpg",
     image_alt = paste(
       "Florencia D'Andrea",
-      "March 2021"
+      "April 2022"
       ),
     og_type = "website",
     og_author = "Florencia D'Andrea",
@@ -79,387 +80,289 @@ meta() %>%
 ```
 
 
-### Learning objectives (15' class)
-
-By the end of this lesson, students are expected to be able to:
-
-* Recognize that they can use `ggplot2::ggplot()` and `plot()` to make graphics in R.
-
-* Understand that there are multiple valid syntaxes in R (tidyverse, base R) 
+ 
 
 
 ---
 
-### Students should know in advance
-
-* Basics of R programming
-* RStudio IDE
-* RMarkdown
-* R packages
-* Tidyverse
-
----
-
-background-image: url(images/cuadrados.png)
+background-image: url(images/75581.jpg)
 background-size: cover
 class: bottom
 
 
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
-## Data Visualization I
-#### Lesson 1: Orientation to statistical graphics
+.bg-white.b--dark-grey.ba.bw2.br3.shadow-5.ph4.mt5[
 
-]
-
----
-
-
-## Data Science
-
-
-```{r,echo = FALSE, out.width=650, fig.align='center'}
-knitr::include_graphics("images/data.png")
-```
-
-.footnote[Adapted from [R for Data Science](https://r4ds.had.co.nz/explore-intro.html)]
-
----
-
-
-## Data Science
-
-
-```{r data2,echo = FALSE, out.width=650, fig.align='center'}
-knitr::include_graphics("images/data2.png")
-```
-
-.footnote[Adapted from [R for Data Science](https://r4ds.had.co.nz/explore-intro.html)]
----
-
-class: center, middle
-
-
-.pull-left[
-
-```{r plot, fig.height=5, fig.width=5, echo=FALSE}
-plot(diamonds$carat, diamonds$price)
-```
-
-]
-
-.pull-right[
-
-```{r ggplot, fig.height=5, fig.width=5, echo=FALSE}
-ggplot(diamonds, aes(x=carat, y=price))+
-  geom_point()
-```
-
-]
----
-
-.pull-left[
-
-```{r plot2, fig.height=4, fig.width=4, echo=FALSE}
-plot(diamonds$carat, diamonds$price)
-```
-
-]
-
-.pull-right[
-
-```{r ggplot2, fig.height=4, fig.width=4, echo=FALSE}
-ggplot(diamonds, aes(x=carat, y=price))+
-  geom_point()
-```
+.large[ ### Vive la différence - research software engineers | Apr **2022** ]
 ]
 
 
-
-#### Which one of these statements is true?
-
---
-
-**A.** These plots were made using different programming languages.
-
---
-
-**B.** Both plots were made using R.
-
---
-
-**C.** None of the above.
-
 ---
 
-.pull-left[
 
-```{r plot5, fig.height=4, fig.width=4, echo=FALSE}
-plot(diamonds$carat, diamonds$price)
-```
 
-]
-
-.pull-right[
-
-```{r ggplot5, fig.height=4, fig.width=4, echo=FALSE}
-ggplot(diamonds, aes(x=carat, y=price))+
-  geom_point()
-```
-
-]
-
-#### Which one of these statements is true?
-
-**A.** These plots were made using different programming languages.
-
-
-<span style="background-color: lightblue">**B.** Both plots were made using R.</mark>
-
-
-**C.** None of the above.
-
----
-
-.pull-left[
-
-```{r plot4, fig.height=4, fig.width=4, echo=FALSE}
-plot(diamonds$carat, diamonds$price)
-```
-
-####`plot()`
-
-]
-
-.pull-right[
-
-```{r ggplot44, fig.height=4, fig.width=4, echo=FALSE}
-ggplot(diamonds, aes(x=carat, y=price))+
-  geom_point()
-```
-
-####`ggplot2::ggplot()`
-
-
-]
-  
-#### <pre class="tab">base R                     tidyverse</pre>
-
-
----
-
-class: middle, center
-
-
-.pull-left[
-
-```{r, echo = FALSE, fig.align='center', out.width=250}
-knitr::include_graphics("images/hex.png")
-```
-
-]
-
-.pull-right[
-
-```{r ggplot4, fig.height=4, fig.width=4, echo=FALSE}
-ggplot(diamonds, aes(x=carat, y=price))+
-  geom_point()
-```
-
-]
-
-#### `ggplot2` is the plotting package of the `tidyverse`
-
----
-
-## Tidyverse 
-
-Opinionated collection of **R packages** designed for data science
-
-
-```{r tidy,echo = FALSE, fig.align='center'}
-knitr::include_graphics("images/tidytools.png")
-```
-
-
-.footnote[[Tidyverse webpage](https://www.tidyverse.org/)]
-
-
----
-
-class: inverse, middle, center
-
-## Live coding #1
-
-#### `plot()` and `ggplot()`
-
-📝 DSCI531_lesson1_livecoding1.Rmd
-
----
-
-.pull-left[
-
-#### Base R syntax
-
-```{r plot14, fig.height=4, fig.width=4}
-plot(diamonds$carat, 
-     diamonds$price)
-```
-
-]
-
-.pull-right[
-
-#### Tidyverse syntax
-
-```{r ggplot14, fig.height=4, fig.width=4}
-ggplot(diamonds,
-       aes(x=carat, 
-           y=price))+
-  geom_point()
-```
-]
-
----
-
-class: middle, inverse
-
-
-### The variety of R syntaxes give you **many ways to “say” the same thing**
-
-.footnote[R Syntax Comparison Cheat Sheet by Amelia McNamara]
----
-
-class: middle, center, inverse
-
-
-### In this course we are going to learn `ggplot2` 
-
----
-
-### Why to use `ggplot2`?
-
-
-.pull-left[
-
-✔️ **Layered grammar of graphics** 
-
-The syntax of the code involves only important decisions that directly impact a user’s interpretation of the data
-
-✔️ **It is easier to get good quality plots for publication** 
-
-]
-
-.pull-right[
-
-```{r ggplot11, fig.height=6, fig.width=6, echo=FALSE, message = FALSE, warning = FALSE}
-ggplot(diamonds, aes(x = carat, y = price, col = cut)) +
-    geom_point(alpha = 0.2) +
-    scale_color_viridis_d(direction = -1) +
-    geom_smooth(method = "gam")+
-    theme_classic()
-```
-
-]
-
-.footnote[[Why I use ggplot2](http://varianceexplained.org/r/why-I-use-ggplot2/) - David Robinson]
-
-
----
-
-class: middle, center
-
-```{r google,echo = FALSE, fig.align='center'}
-knitr::include_graphics("images/google.png")
-```
----
-
-class: middle, center
-
-## A tip for effective web searching
-
-
-```{r ggplot21, fig.height=4, fig.width=4, echo=FALSE}
-ggplot(diamonds, aes(x=carat, y=price))+
-  geom_point()
+```{r,echo = FALSE, out.width=800, fig.align='center'}
+knitr::include_graphics("images/argentina.png")
 ```
 
 
 ---
 
-#### Question
-
-```{r pregunta,echo = FALSE, fig.align='center'}
-knitr::include_graphics("images/pregunta.png")
-```
-
----
-
-#### Answer 1 ❌  
-
-```{r,echo = FALSE, fig.align='center', out.width=550}
-knitr::include_graphics("images/stack1.png")
-```
-
-
-.footnote[[Any way to make plot points in scatterplot more transparent in R?](https://stackoverflow.com/questions/12995683/any-way-to-make-plot-points-in-scatterplot-more-transparent-in-r)]
----
-
-#### Answer 2 🎉 `ggplot()`
-
-```{r,echo = FALSE, fig.align='center'}
-knitr::include_graphics("images/stack2.png")
-```
-
-
-.footnote[[Any way to make plot points in scatterplot more transparent in R?](https://stackoverflow.com/questions/12995683/any-way-to-make-plot-points-in-scatterplot-more-transparent-in-r)]
-
----
-
-class: middle, inverse, center
-
-### Now we are ready to learn more about `ggplot2`
-
----
-
-background-image: url(images/cuadrados.png)
+background-image: url(images/ingresantes.jpg)
 background-size: cover
+class: bottom
 
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
-
-### References
-
-* Wickham, H., & Grolemund, G. (2016). [R for data science: import, tidy, transform, visualize, and model data.](https://r4ds.had.co.nz/) O'Reilly Media, Inc.
-
-* Wickham, H. (2010). [A layered grammar of graphics](http://vita.had.co.nz/papers/layered-grammar.pdf). Journal of Computational and Graphical Statistics, 19(1), 3-28.
-
-* Wickham, H. (2016). [Ggplot2: Elegant graphics for data analysis.](https://ggplot2-book.org/) Springer, 2016.
-]
-
-
-
----
-
-background-image: url(images/cuadrados.png)
-background-size: cover
-
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
-
-### Blogposts - Cheat Sheets
-
-* [R Syntax Comparison Cheat Sheet](https://www.amelia.mn/blog/teaching/2018/02/11/Syntax-comparison.html) by Amelia McNamara
-
-* [Why I use ggplot2](http://varianceexplained.org/r/why-I-use-ggplot2/) by David Robinson
-
+.bg-white.b--dark-grey.ba.bw2.br3.shadow-5.ph4.mt5[
+Incoming class 1st term 2007
+Faculty of Sciences -  University of Buenos Aires
 ]
 
 
 ---
 
-```{r cmp,echo = FALSE, fig.align='center'}
-knitr::include_graphics("images/concept_map.png")
+## Fellow
+
+.pull-left[
+
+```{r,echo = FALSE, out.width=350, fig.align='center'}
+knitr::include_graphics("images/viaje.png")
 ```
 
-.footnote[Concept Map - Data Visualization in R - Lesson 1]
+
+]
+.pull-right[
+```{r ghtwba2, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
+library(tweetrmd)
+tweet_screenshot("https://twitter.com/RLadiesBA/status/868517119528501248?s=20&t=36flSCmHWnCDnULDIzSDHw")
+```
+
+]
+
+---
+class: middle
+
+.pull-left[
+```{r,echo = FALSE, out.width=500, fig.align='center'}
+knitr::include_graphics("images/personas.png")
+```
+]
+
+.pull-right[
+
+> "**Peer interaction** not only had a positive influence but was also selected as new idea stimulator..."
+
+]
+
+.footnote[[De Paepe, J.L., et al. "Researchers in Argentina: Scientific vocation, publication strategies and time‐management tactics." Austral Ecology 46.8 (2021): 1177-1185.](https://onlinelibrary.wiley.com/doi/full/10.1111/aec.13055)]
+
+---
+class: middle
+
+.pull-left[
+```{r ghtwcom, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
+knitr::include_graphics("images/computer.png")
+```
+]
+
+.pull-right[
+> "Argentina's a country budget to finance science is noticeably lower than in other countries and historically **unstable**"
+
+]
+
+.footnote[[De Paepe, J. L., et al. "Researchers in Argentina: Scientific vocation, publication strategies and time‐management tactics." Austral Ecology 46.8 (2021): 1177-1185.](https://onlinelibrary.wiley.com/doi/full/10.1111/aec.13055)]
+
+---
+
+## One thing leaves to another
+
+```{r ghtwcom2, echo=FALSE, fig.align="center", out.width=600}
+knitr::include_graphics("images/logos.png")
+```
+
+---
+
+.pull-left[
+```{r 11, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
+library(tweetrmd)
+tweet_screenshot("https://twitter.com/RLadiesBA/status/1037807655342026752?s=20&t=36flSCmHWnCDnULDIzSDHw")
+```
+
+
+]
+.pull-right[
+```{r 22, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
+library(tweetrmd)
+tweet_screenshot("https://twitter.com/RLadiesBA/status/1037820512473411584?s=20&t=36flSCmHWnCDnULDIzSDHw")
+```
+]
+
+
+
+
+---
+
+class: middle
+
+.pull-left[
+```{r,echo = FALSE, out.width=400, fig.align='center'}
+knitr::include_graphics("images/software.jpg")
+```
+]
+.pull-right[
+
+software development and databases produced in research deserve the **same level of recognition and quality as scientific articles**
+]
+
+.footnote[[The Turing Way Community, & Scriberia. (2020)]( http://doi.org/10.5281/zenodo.3695300)]
+
+---
+
+## ReproHack
+
+.pull-left[
+```{r ghtw, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
+library(tweetrmd)
+tweet_screenshot("https://twitter.com/cantoflor_87/status/1237327616522293248?s=20&t=Vx0P3p1So0Qjkt-vjhSaUA")
+```
+]
+.pull-right[
+
+```{r,echo = FALSE, out.width=400, fig.align='center'}
+knitr::include_graphics("images/bsbr.png")
+```
+
+
+]
+
+
+
+.footnote[[Twitter](https://twitter.com/ReproHack) / [Slack](https://reprohack-autoinvite.herokuapp.com/)]
+
+---
+
+
+
+```{r ghtw222, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
+library(tweetrmd)
+tweet_screenshot("https://twitter.com/cantoflor_87/status/1038005760385536001?s=20&t=Vx0P3p1So0Qjkt-vjhSaUA")
+```
+
+.footnote[[Tweet](https://twitter.com/cantoflor_87/status/1038005760385536001?s=20&t=Vx0P3p1So0Qjkt-vjhSaUA)]
+
+
+---
+
+
+
+
+```{r ghtw11, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
+library(tweetrmd)
+tweet_screenshot("https://twitter.com/RLadiesBA/status/1299834952578674689?s=20&t=36flSCmHWnCDnULDIzSDHw")
+```
+
+.footnote[[Tweet](https://twitter.com/RLadiesBA/status/1299834952578674689?s=20&t=36flSCmHWnCDnULDIzSDHw)]
+
+
+
+
+---
+
+.pull-left[
+
+```{r ghtw4, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, out.width=450}
+library(tweetrmd)
+tweet_screenshot("https://twitter.com/ReproHack/status/1260125107667820544?s=20&t=Vx0P3p1So0Qjkt-vjhSaUA")
+```
+]
+
+.pull-right[
+
+```{r,echo = FALSE, out.width=400, fig.align='center'}
+knitr::include_graphics("images/CARTEL-CURSO.jpg")
+```
+
+]
+
+
+
+
+.footnote[[Tweet](https://twitter.com/ReproHack/status/1260125107667820544?s=20&t=Vx0P3p1So0Qjkt-vjhSaUA)]
+
+---
+
+.pull-left[
+```{r,echo = FALSE, out.width=400, fig.align='center'}
+knitr::include_graphics("images/CARTEL-CURSO.jpg")
+```
+]
+.pull-right[
+
+]
+
+---
+
+
+# ReproHack - [LatinR 2020](https://latin-r.com/blog/reprohack)
+
+```{r rhlr, echo=FALSE}
+xaringanExtra::embed_xaringan(url = "https://flor14.github.io/latinr-reprohack/index.html#1")
+```
+
+
+---
+
+```{r,echo = FALSE, out.width=800, fig.align='center'}
+knitr::include_graphics("images/RSE.png")
+```
+
+.footnote[[Software Sustainability Institute blog](https://www.software.ac.uk/news/complete-international-rse-survey-and-help-us-understand-rse-community)]
+
+
+---
+
+```{r,echo = FALSE, out.width=300, fig.align='left'}
+knitr::include_graphics("images/mds.jpg")
+```
+
+---
+
+class: middle
+
+We need greater career opportunities to switch to data science / software development areas.
+
+---
+
+class: middle
+
+Networking and interaction with likeminded people in different communities was key to helping me find the important sources of information.
+---
+
+class: middle
+
+While some barriers to the access of sources of knowledge have been eliminated with the pandemic,
+**other almost invisible barriers remain**.
+
+
+---
+
+```{r,echo = FALSE, out.width=600, fig.align='center'}
+knitr::include_graphics("images/HealthyLeadership.jpg")
+```
+
+.footnote[[The Turing Way Community, & Scriberia. (2020)]( http://doi.org/10.5281/zenodo.3695300)]
+
+---
+
+background-image: url(images/75581.jpg)
+background-size: cover
+class: middle
+
+.bg-white.b--dark-grey.ba.bw2.br3.shadow-5.ph4.mt5[
+**Thank you!**
+
+ Florencia D'Andrea, PhD <br>
+ twitter: [@cantoflor_87]("http://twitter.com/cantoflor_87")<br>
+ web: [florencia.netlify.app]("https://florencia.netlify.app/")<br>
+]
 
 
 
