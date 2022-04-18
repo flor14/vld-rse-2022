@@ -58,15 +58,14 @@ style_mono_accent(
 ```{r metathis, echo=FALSE, message = FALSE, warning = FALSE}
 library(metathis)
 meta() %>%
-  meta_name("github-repo" = "flor14/short_class.git") %>% 
+  meta_name("github-repo" = "flor14/vld-rse-2022.git") %>% 
   meta_social(
-    title = "Data Visualization I",
+    title = "Vive la différence",
     description = paste(
-      "an introduction to ggplot2", 
-      "and other visualizacion packages"
+      "Research Software Engineers"
     ),
-    url = "https://flor14.github.io/short_class/slides.html#1",
-    image = "https://res.cloudinary.com/flor/image/upload/v1614305498/75581_l4kohr.jpg",
+    url = "https://flor14.github.io/vld-rse-2022/slides.html#1",
+    image = "images/75581.jpg",
     image_alt = paste(
       "Florencia D'Andrea",
       "April 2022"
@@ -82,8 +81,8 @@ meta() %>%
 
  
 
-
 ---
+
 
 background-image: url(images/75581.jpg)
 background-size: cover
@@ -132,7 +131,23 @@ knitr::include_graphics("images/computer.png")
 
 .footnote[[De Paepe, J. L., et al. "Researchers in Argentina: Scientific vocation, publication strategies and time‐management tactics." Austral Ecology 46.8 (2021): 1177-1185.](https://onlinelibrary.wiley.com/doi/full/10.1111/aec.13055)]
 
+---
 
+class: middle
+
+.pull-left[
+```{r,echo = FALSE, out.width=500, fig.align='center'}
+knitr::include_graphics("images/personas.png")
+```
+]
+
+.pull-right[
+
+> "**Peer interaction** not only had a positive influence but was also selected as new idea stimulator..."
+
+]
+
+.footnote[[De Paepe, J.L., et al. "Researchers in Argentina: Scientific vocation, publication strategies and time‐management tactics." Austral Ecology 46.8 (2021): 1177-1185.](https://onlinelibrary.wiley.com/doi/full/10.1111/aec.13055)]
 
 ---
 
@@ -322,20 +337,5 @@ class: middle
 ---
 
 
-<!-- class: middle -->
-
-<!-- .pull-left[ -->
-<!-- ```{r,echo = FALSE, out.width=500, fig.align='center'} -->
-<!-- knitr::include_graphics("images/personas.png") -->
-<!-- ``` -->
-<!-- ] -->
-
-<!-- .pull-right[ -->
-
-<!-- > "**Peer interaction** not only had a positive influence but was also selected as new idea stimulator..." -->
-
-<!-- ] -->
-
-<!-- .footnote[[De Paepe, J.L., et al. "Researchers in Argentina: Scientific vocation, publication strategies and time‐management tactics." Austral Ecology 46.8 (2021): 1177-1185.](https://onlinelibrary.wiley.com/doi/full/10.1111/aec.13055)] -->
 
 
