@@ -129,7 +129,7 @@ knitr::include_graphics("images/computer.png")
 ]
 
 .pull-right[
-> "Argentina's a country budget to finance science is noticeably lower than in other countries and historically **unstable**"
+> "Argentina's budget to finance science is noticeably lower than in other countries and historically **unstable**"
 
 ]
 
